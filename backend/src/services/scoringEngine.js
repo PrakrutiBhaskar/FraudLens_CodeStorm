@@ -1,77 +1,38 @@
-import levenshtein from "js-levenshtein";
+export const computeRiskScore = (meta, official, icon, modules) => {
+  let score = 0;
+  let reasons = [];
 
-const clamp01 = v => Math.max(0, Math.min(1, v));
-const safeStr = s => (s || "").toString();
+  // name/package similarity (your existing code)
 
-export const computeRiskScore = (meta, official, icon) => {
-  const officialName = official.brandName || "";
-  const officialPkg = official.packageName || "";
-
-  const candName = safeStr(meta.app_name || "");
-  const candPkg = safeStr(meta.package || "");
-
-  // name similarity
-  let nameSim = 0;
-  if (candName && officialName) {
-    const d = levenshtein(candName.toLowerCase(), officialName.toLowerCase());
-    const maxLen = Math.max(candName.length, officialName.length, 1);
-    nameSim = clamp01(1 - d / maxLen);
+  if (modules.permission.dangerousCount > 0) {
+    score += 25;
+    reasons.push("Dangerous permission abuse");
   }
 
-  // package similarity
-  let pkgSim = 0;
-  if (candPkg && officialPkg) {
-    const d = levenshtein(candPkg.toLowerCase(), officialPkg.toLowerCase());
-    const maxLen = Math.max(candPkg.length, officialPkg.length, 1);
-    pkgSim = clamp01(1 - d / maxLen);
+  if (modules.overlay.overlayAbuse) {
+    score += 35;
+    reasons.push("Overlay phishing capability");
   }
 
-  const iconSim = icon?.similarity ?? 0;
+  if (modules.native.suspiciousNativeCount > 0) {
+    score += 20;
+    reasons.push("Suspicious native libraries found");
+  }
 
-  // certificate mismatch
-  const hasOfficialCert = !!official.cert_fingerprint;
-  const certMismatch =
-    hasOfficialCert && !meta.cert_fingerprints.includes(official.cert_fingerprint);
+  if (modules.opcode.opcodeIndicators > 0) {
+    score += 20;
+    reasons.push("Malicious opcode patterns detected");
+  }
 
-  const certPenalty = certMismatch ? 0.25 : 0;
+  if (modules.url.suspiciousCount > 0) {
+    score += 15;
+    reasons.push("Suspicious remote URLs detected");
+  }
 
-  // repack signals
-  const repackAnomaly =
-    (meta.repack?.soCount > 0 ? 0.2 : 0) +
-    (meta.repack?.sizeAnomalyScore || 0);
+  if (modules.evasion.evasionCount > 0) {
+    score += 25;
+    reasons.push("Anti-sandbox / evasion behavior");
+  }
 
-  // suspicious strings
-  const stringPenalty = Math.min(0.25, (meta.stringScan?.matchCount || 0) * 0.05);
-
-  // combine
-  const similarityScore =
-    0.35 * nameSim +
-    0.35 * pkgSim +
-    0.30 * iconSim;
-
-  let risk = clamp01((1 - similarityScore) + certPenalty + repackAnomaly + stringPenalty);
-
-  const score = Math.round(risk * 100);
-
-  const reasons = [];
-
-  if (nameSim < 0.7) reasons.push(`Name similarity low (${Math.round(nameSim*100)}%)`);
-  if (pkgSim < 0.7)  reasons.push(`Package similarity low (${Math.round(pkgSim*100)}%)`);
-
-  if (certMismatch) reasons.push("Certificate mismatch");
-  if (meta.repack?.soCount > 0) reasons.push(`Native libraries present (${meta.repack.soCount})`);
-  if (meta.stringScan?.matchCount > 0) reasons.push(`Suspicious strings detected (${meta.stringScan.matchCount})`);
-
-  return {
-    score,
-    reasons,
-    breakdown: {
-      nameSim,
-      pkgSim,
-      iconSim,
-      certMismatch,
-      repack: meta.repack,
-      stringScan: meta.stringScan
-    }
-  };
+  return { score: Math.min(score, 100), reasons };
 };
