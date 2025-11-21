@@ -3,7 +3,7 @@
 
 body {
     font-family: 'Share Tech Mono', monospace;
-    background: url('../assets/hacker-bg.png') no-repeat center center fixed;
+    background: url('https://developer-blogs.nvidia.com/wp-content/uploads/2022/06/Fraud-Prevention_featured-image.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #00ff66;
 }
