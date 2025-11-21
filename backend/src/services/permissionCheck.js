@@ -12,7 +12,8 @@ export const analyzePermissions = (permissions = []) => {
   ];
 
   const found = permissions
-    .map(p => p.name)
+    .map(p => (typeof p === "string" ? p : p.name))
+
     .filter(p => dangerous.includes(p));
 
   return {
