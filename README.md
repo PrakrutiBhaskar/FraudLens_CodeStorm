@@ -71,10 +71,10 @@ The frontend UI may run on ```http://localhost:3000``` (or your configured port)
 
 2.**Mocked vs Real Data**
 
-Mocked Data	
+**Mocked Data:**
 Some parts of the application (for testing or demo) may use mock data — for example, pre-generated JSON payloads, dummy user profiles, or synthetic fraud cases. These are not real user data and are used so developers can test features without connecting to a production database.
 
-Real Data	
+**Real Data:**
 In production or your real setup, the app should connect to a real database (SQL, NoSQL, or others) or real data sources (APIs or transaction feeds). You will need valid credentials and data connections configured via ```.env```.
 Note: Be careful not to commit real credentials or sensitive data to your repository. Use ```.gitignore``` to prevent ```.env``` or other config files from being pushed.
 
