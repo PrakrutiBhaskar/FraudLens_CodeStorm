@@ -11,7 +11,7 @@ export default function Metrics() {
     try {
       setLoading(true);
 
-      // First try backend route
+      // Try real backend metric route
       try {
         const res = await axios.get("http://localhost:5001/api/metrics");
         setMetrics(res.data);
@@ -21,9 +21,11 @@ export default function Metrics() {
         console.warn("API /api/metrics missing → using fallback.");
       }
 
-      // FALLBACK: build metrics from scans
+      // Fallback: Build metrics from scans
       const scanRes = await axios.get("http://localhost:5001/api/scans");
-      const scans = scanRes.data.scans || [];
+
+      // FIX: /api/scans returns a list, NOT { scans: [...] }
+      const scans = scanRes.data || [];
 
       if (scans.length === 0) {
         setMetrics({ message: "No scans yet" });
@@ -32,17 +34,16 @@ export default function Metrics() {
 
       // Compute fallback metrics
       const total = scans.length;
-      const avgRisk =
-        scans.reduce((a, s) => a + s.score, 0) / scans.length;
+      const avgRisk = scans.reduce((acc, s) => acc + (s.score || 0), 0) / total;
 
-      const highRisk = scans.filter((s) => s.score >= 80).length;
+      const highRisk = scans.filter((s) => (s.score || 0) >= 80).length;
 
-      const lastScan = scans[scans.length - 1]?.timestamp;
+      const lastScan = scans[scans.length - 1]?.timestamp || "N/A";
 
-      // Find top reasons
+      // Reason counts
       const reasonCounts = {};
       scans.forEach((scan) =>
-        scan.reasons.forEach((r) => {
+        (scan.reasons || []).forEach((r) => {
           reasonCounts[r] = (reasonCounts[r] || 0) + 1;
         })
       );

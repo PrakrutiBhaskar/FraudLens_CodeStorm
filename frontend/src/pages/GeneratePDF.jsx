@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import jsPDF from "jspdf";
-import "jspdf-autotable";
+import autoTable from "jspdf-autotable";   // ✅ Correct Import
 import "../styles/matrix-theme.css";
 
 export default function GeneratePDF() {
@@ -20,16 +20,16 @@ export default function GeneratePDF() {
         return;
       }
 
-      const latest = scans[0]; // newest scan
+      const latest = scans[0]; 
       const doc = new jsPDF();
 
-      // ----- HEADER -----
+      // Header
       doc.setFontSize(22);
       doc.text("FraudLens Security Analysis Report", 20, 20);
       doc.setFontSize(12);
       doc.text(`Generated: ${new Date().toLocaleString()}`, 20, 30);
 
-      // ----- BASIC INFO -----
+      // App Info
       doc.setFontSize(16);
       doc.text("App Metadata:", 20, 45);
 
@@ -37,44 +37,52 @@ export default function GeneratePDF() {
       doc.text(`Package: ${latest.meta?.package || "N/A"}`, 20, 55);
       doc.text(`Risk Score: ${latest.score}%`, 20, 65);
 
-      // ----- PERMISSIONS TABLE -----
-      if (latest.meta.permissions && latest.meta.permissions.length) {
+      // Permissions table
+      if (latest.meta.permissions?.length) {
         doc.text("Permissions:", 20, 80);
-        doc.autoTable({
+        autoTable(doc, {
           startY: 85,
           head: [["Permission Name"]],
-          body: latest.meta.permissions.map(p => [p.name]),
+          body: latest.meta.permissions.map(p => [p.name || p]),
         });
       }
 
-      // ----- REASONS TABLE -----
-      if (latest.reasons && latest.reasons.length) {
+      // Reasons table
+      if (latest.reasons?.length) {
         const finalY = doc.lastAutoTable?.finalY || 100;
+
         doc.text("Risk Reasons:", 20, finalY + 10);
 
-        doc.autoTable({
+        autoTable(doc, {
           startY: finalY + 15,
           head: [["Reason"]],
           body: latest.reasons.map(r => [r]),
         });
       }
 
-      // ----- HASH INFO -----
+      // Certificate fingerprints
       const nextY = doc.lastAutoTable?.finalY || 150;
+
       doc.text("Certificate Fingerprints:", 20, nextY + 10);
 
       (latest.meta?.cert_fingerprints || []).forEach((fp, i) => {
         doc.text(`• ${fp}`, 25, nextY + 20 + i * 7);
       });
 
-      // ----- ICON SIMILARITY -----
-      doc.text(`Icon Similarity: ${latest.iconScores.similarity}%`,
-        20, nextY + 40
+      // Icon similarity
+      doc.text(
+        `Icon Similarity: ${latest.iconScores?.similarity || 0}%`,
+        20,
+        nextY + 50
       );
 
-      // ----- FOOTER -----
+      // Footer
       doc.setFontSize(10);
-      doc.text("Powered by FraudLens — Anti-Fraud Intelligence Engine", 20, 285);
+      doc.text(
+        "Powered by FraudLens — Anti-Fraud Intelligence Engine",
+        20,
+        285
+      );
 
       doc.save("FraudLens_Report.pdf");
 
