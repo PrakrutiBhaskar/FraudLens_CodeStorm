@@ -6,12 +6,13 @@ body {
     background: url('https://www.macquarie.com/us/en/disclosures/security-and-fraud/_jcr_content/root/colour_block/grid/image.coreimg.82.1056.jpeg/1741834987195/stack-security-and-fraud.jpeg') no-repeat center center fixed;
     background-size: cover;
     color: #00ff66;
+    filter: brightness(1.5); 
 }
 
 /* Neon glow text */
 .neon-text {
-    color: #00ff66;
-    text-shadow: 0 0 8px #139346, 0 0 15px #19e072;
+    color: #18de67;
+    text-shadow: 0 0 8px #06421e, 0 0 15px #19e072;
 }
 
 /* Frosted-glass panel */
@@ -35,8 +36,8 @@ body {
 }
 
 .hacker-btn:hover {
-    background: rgba(0,255,102,0.15);
-    box-shadow: 0 0 10px #00ff66;
+    background: rgba(3, 188, 99, 0.15);
+    box-shadow: 0 0 10px #24d56b;
 }
 
 /* Scrollbars */
