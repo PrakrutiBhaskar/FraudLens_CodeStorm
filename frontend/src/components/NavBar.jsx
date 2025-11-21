@@ -14,23 +14,16 @@ export default function NavBar() {
   return (
     <div className="panel flex items-center justify-between mb-6 sticky top-0 z-50 backdrop-blur-lg bg-black/50 p-4">
 
-      {/* Left: Logo/Title */}
-      <div className="flex items-center gap-2">
-  <span className="text-yellow-400 text-2xl drop-shadow-[0_0_10px_#ffd500]">⚡</span>
-
-  <span className="text-[#00ffcc] font-bold text-2xl tracking-wide 
-    px-3 py-1 rounded-md 
-    bg-black/60 
-    border border-green-500/40 
-    shadow-[0_0_12px_#00ff66,0_0_25px_#00ff66]
-    backdrop-blur-xl">
-    FraudLens
-  </span>
-</div>
+      
 
 
       {/* Right: Nav Links */}
       <div className="flex gap-11 item-right flex-wrap">
+
+      <p className="neon-text neon-large font-extrabold text-5xl">
+  🕵🏻‍♀️ FraudLens
+</p>
+
         <Link to="/" className={linkClass("/")}>
           HOME
         </Link>
