@@ -1,0 +1,542 @@
+{
+  "meta": {
+    "package": "appinventor.ai_prakrutibhaskar24.testapk",
+    "permissions": [
+      {
+        "name": "android.permission.INTERNET"
+      }
+    ],
+    "icon_path": null,
+    "cert_fingerprints": [
+      "e7728ac0e302b746855d6c0c28eb1aae67292d840f03f6d5f7285eea90e9f992"
+    ],
+    "repack": {
+      "soCount": 0,
+      "soList": [],
+      "apkSizeBytes": 3733022,
+      "sizeAnomalyScore": 0
+    },
+    "stringScan": {
+      "matchCount": 125,
+      "matches": [
+        {
+          "token": "http://",
+          "entry": "res/anim/abc_fade_in.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/abc_fade_out.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/abc_grow_fade_in_from_bottom.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/abc_popup_enter.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/abc_popup_exit.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/abc_shrink_fade_out_from_bottom.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/abc_slide_in_bottom.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/abc_slide_in_top.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/abc_slide_out_bottom.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/abc_slide_out_top.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/abc_tooltip_enter.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/abc_tooltip_exit.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/fadein.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/fadeout.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/hold.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/slide_enter.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/slide_enter_reverse.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/slide_exit.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/slide_exit_reverse.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/slide_v_enter.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/slide_v_enter_reverse.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/slide_v_exit.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/slide_v_exit_reverse.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/zoom_enter.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/zoom_enter_reverse.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/zoom_exit.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/anim/zoom_exit_reverse.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color-v21/abc_btn_colored_borderless_text_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color-v23/abc_btn_colored_borderless_text_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color-v23/abc_btn_colored_text_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color-v23/abc_color_highlight_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color-v23/abc_tint_btn_checkable.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color-v23/abc_tint_default.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color-v23/abc_tint_edittext.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color-v23/abc_tint_seek_thumb.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color-v23/abc_tint_spinner.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color-v23/abc_tint_switch_track.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_background_cache_hint_selector_material_dark.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_background_cache_hint_selector_material_light.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_btn_colored_borderless_text_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_btn_colored_text_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_hint_foreground_material_dark.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_hint_foreground_material_light.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_primary_text_disable_only_material_dark.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_primary_text_disable_only_material_light.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_primary_text_material_dark.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_primary_text_material_light.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_search_url_text.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_secondary_text_material_dark.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_secondary_text_material_light.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_tint_btn_checkable.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_tint_default.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_tint_edittext.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_tint_seek_thumb.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_tint_spinner.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/abc_tint_switch_track.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/switch_thumb_material_dark.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/color/switch_thumb_material_light.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/drawable-v21/abc_ratingbar_indicator_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/drawable-v21/abc_ratingbar_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/drawable-v21/abc_ratingbar_small_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v16/notification_template_custom_big.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v17/abc_action_mode_close_item_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v17/abc_alert_dialog_button_bar_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v17/abc_alert_dialog_title_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v17/abc_dialog_title_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v17/abc_popup_menu_header_item_layout.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v17/abc_search_view.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v17/abc_select_dialog_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v17/abc_tooltip.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v17/notification_action.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v17/notification_action_tombstone.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v17/notification_template_custom_big.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v17/select_dialog_multichoice_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v17/select_dialog_singlechoice_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v21/abc_screen_toolbar.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v21/notification_action.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v21/notification_action_tombstone.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v21/notification_template_custom_big.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v21/notification_template_icon_group.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v22/abc_alert_dialog_button_bar_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-v26/abc_screen_toolbar.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-watch-v20/abc_alert_dialog_button_bar_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout-watch-v20/abc_alert_dialog_title_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_action_bar_title_item.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_action_bar_up_container.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_action_menu_item_layout.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_action_menu_layout.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_action_mode_bar.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_action_mode_close_item_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_activity_chooser_view.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_activity_chooser_view_list_item.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_alert_dialog_button_bar_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_alert_dialog_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_alert_dialog_title_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_cascading_menu_item_layout.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_dialog_title_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_expanded_menu_layout.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_list_menu_item_checkbox.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_list_menu_item_icon.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_list_menu_item_layout.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_list_menu_item_radio.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_popup_menu_header_item_layout.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_popup_menu_item_layout.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_screen_content_include.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_screen_simple.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_screen_simple_overlay_action_mode.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_screen_toolbar.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_search_dropdown_item_icons_2line.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_search_view.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_select_dialog_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/abc_tooltip.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/custom_dialog.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/notification_action.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/notification_action_tombstone.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/notification_template_custom_big.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/notification_template_icon_group.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/notification_template_part_chronometer.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/notification_template_part_time.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/select_dialog_item_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/select_dialog_multichoice_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/select_dialog_singlechoice_material.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/layout/support_simple_spinner_dropdown_item.xml"
+        },
+        {
+          "token": "http://",
+          "entry": "res/xml/provider_paths.xml"
+        },
+        {
+          "token": "upi",
+          "entry": "resources.arsc"
+        }
+      ]
+    }
+  },
+  "official": {
+    "brandName": "PhonePe",
+    "packageName": "com.phonepe.app",
+    "officialIcon": "phonepe.png",
+    "iconPath": "src/brands/phonepe.png"
+  },
+  "icon": {
+    "phash": null,
+    "similarity": 0
+  },
+  "score": 100,
+  "reasons": [
+    "Name similarity low (0%)",
+    "Package similarity low (9%)",
+    "Suspicious strings detected (125)"
+  ],
+  "generated_at": "2025-11-21T09:11:05.005Z"
+}
