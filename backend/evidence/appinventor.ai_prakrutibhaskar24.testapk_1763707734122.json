@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "package": "appinventor.ai_prakrutibhaskar24.testapk",
+    "permissions": [
+      {
+        "name": "android.permission.INTERNET"
+      }
+    ],
+    "icon_path": null
+  },
+  "official": {
+    "brandName": "PhonePe",
+    "packageName": "com.phonepe.app",
+    "officialIcon": "phonepe.png",
+    "iconPath": "src/brands/phonepe.png"
+  },
+  "icon": {
+    "phash": null,
+    "similarity": 0
+  },
+  "score": 0,
+  "reasons": [
+    "Name mismatch",
+    "Package mismatch"
+  ],
+  "generated_at": "2025-11-21T06:48:54.122Z"
+}
