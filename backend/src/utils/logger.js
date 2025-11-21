@@ -3,7 +3,7 @@ import fs from "fs";
 const LOG_FILE = "logs/scanLog.json";
 
 export const logScan = (entry) => {
-  // Ensure logs directory exists
+  const logsPath = "src/logs/scans.json";
   if (!fs.existsSync("logs")) {
     fs.mkdirSync("logs");
   }

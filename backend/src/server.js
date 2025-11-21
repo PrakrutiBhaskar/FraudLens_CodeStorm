@@ -7,6 +7,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
 import brandRoutes from "./routes/brandRoutes.js";
+import scanRoutes from "./routes/scanRoutes.js";
+
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -28,7 +30,10 @@ const EVIDENCE = path.join(__dirname, "../evidence");
 fs.mkdirSync(UPLOADS, { recursive: true });
 fs.mkdirSync(EVIDENCE, { recursive: true });
 
+app.use("/api/brands", brandRoutes);
 app.use("/api/analyze", analyzeRoutes);
+app.use("/api/scans", scanRoutes);
+
 
 // static serve evidence for quick download (for demo)
 app.use("/evidence", express.static(EVIDENCE));
