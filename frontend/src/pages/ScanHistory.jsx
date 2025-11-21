@@ -12,8 +12,8 @@ export default function ScanHistory() {
       setLoading(true);
       const res = await axios.get("http://localhost:5001/api/scans");
 
-      // Backend returns: { scans: [...] }
-      setHistory(res.data.scans || []);
+      // FIX: backend returns a list, not { scans: [...] }
+      setHistory(res.data || []);
       setError("");
     } catch (err) {
       console.error(err);

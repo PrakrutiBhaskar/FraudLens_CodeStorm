@@ -31,15 +31,15 @@ export default function AdminDashboard() {
 
     try {
       const res = await axios.post("http://localhost:5001/api/brands", {
-        name,
-        package: pkg
+        brandName: name,     // 🔥 FIXED
+        packageName: pkg     // 🔥 FIXED
       });
 
       if (res.data.success) {
         setStatus("✅ Brand added successfully!");
         setName("");
         setPkg("");
-        loadBrands(); // refresh list
+        loadBrands();
       } else {
         setStatus("⚠ Failed: " + res.data.error);
       }
@@ -50,13 +50,11 @@ export default function AdminDashboard() {
 
   return (
     <div className="p-6">
-      {/* HEADER */}
       <div className="panel mb-6">
         <h1 className="neon-text text-3xl mb-4">Brand Admin Dashboard</h1>
         <div className="divider"></div>
       </div>
 
-      {/* ADD BRAND PANEL */}
       <div className="panel mb-6">
         <h2 className="neon-text text-xl mb-4">Add New Brand</h2>
 
@@ -85,16 +83,15 @@ export default function AdminDashboard() {
         {status && <div className="neon-text text-sm">{status}</div>}
       </div>
 
-      {/* ALL BRANDS */}
       <div className="grid grid-cols-3 gap-6">
         {brands.length === 0 && (
           <div className="neon-text text-lg opacity-75">No brands found</div>
         )}
 
         {brands.map((b) => (
-          <div key={b.name} className="panel">
-            <div className="neon-text text-xl">{b.name}</div>
-            <div className="text-xs opacity-80">{b.package}</div>
+          <div key={b.brandName} className="panel">
+            <div className="neon-text text-xl">{b.brandName}</div>
+            <div className="text-xs opacity-80">{b.packageName}</div>
           </div>
         ))}
       </div>
