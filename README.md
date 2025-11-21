@@ -13,13 +13,10 @@ The system analyzes data from Google Play Store or APK mirror sites (mocked or s
 1. [How to Run It](#how-to-run-it)  
 2. [Mocked vs Real Data](#mocked-vs-real-data)  
 3. [Example Commands](#example-commands)  
-4. [Project Structure](#project-structure)  
-5. [Dependencies](#dependencies)  
-6. [Contributing](#contributing)  
 
 
- 
- ## How to Run It
+
+  ## How to Run It
 
 Here are the steps to set up and run the FraudLens project on your machine:
 
@@ -113,52 +110,5 @@ curl -X POST http://localhost:5000/api/detect-fraud \
 ```
 
 
-
-4.**Project Structure**
-FraudLens_CodeStorm/
-├── backend/  
-│   ├── controllers/  
-│   ├── models/  
-│   ├── routes/  
-│   ├── .env  
-│   └── server.js  
-├── frontend/  
-│   ├── public/  
-│   ├── src/  
-│   └── package.json  
-└── README.md 
-
-
-
-5.**Dependencies**
-
-Backend:
-Express.js
-Mongoose (or other DB ORM)
-dotenv
-bcryptjs / jsonwebtoken (if authentication)
-
-Frontend:
-React / Vue / Angular
-Axios or Fetch API for HTTP calls
-Other UI libs
-
-
-
-6.**Contributing**
-
-If you want to contribute:
-
-Fork the repository
-
-Create a new branch (git checkout -b feature/your-feature)
-
-Make your changes & test
-
-Commit your changes (git commit -m "Describe your change")
-
-Push (git push origin feature/your-feature)
-
-Create a Pull Request
 
 
