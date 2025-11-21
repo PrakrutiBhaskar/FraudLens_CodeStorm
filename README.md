@@ -31,8 +31,8 @@ Here are the steps to set up and run the FraudLens project on your machine:
 
 
 
-2.Install dependencies
-
+2.**Install dependencies**
+```bash
 # Example for Node.js backend
 cd backend
 npm install
@@ -40,47 +40,51 @@ npm install
 # If there's a frontend (React or otherwise)
 cd ../frontend
 npm install
+```
 
 
-
-3. Set up configuration / environment variables
+3. **Set up configuration / environment variables**
 
 Create a .env file in the backend folder (or wherever required).
 
 Add environment variables such as database URLs, API keys, etc.
 For example:
+```bash
 DB_URL=your_database_url_here  
 API_KEY=your_api_key  
-
+```
 
  
-4. Run the backend & frontend
-
-    # In the backend folder
+4. **Run the backend & frontend**
+```bash
+# In the backend folder
 npm run dev  
 
 # In the frontend folder
 npm start
+```
+
+
+5.**Access the application**
+
+The backend server might run on ```http://localhost:5000``` (or whichever port you configured)
+
+The frontend UI may run on ```http://localhost:3000``` (or your configured port)
 
 
 
-5.Access the application
+**Mocked vs Real Data**
 
-The backend server might run on http://localhost:5000 (or whichever port you configured)
+Mocked Data	
+Some parts of the application (for testing or demo) may use mock data — for example, pre-generated JSON payloads, dummy user profiles, or synthetic fraud cases. These are not real user data and are used so developers can test features without connecting to a production database.
 
-The frontend UI may run on http://localhost:3000 (or your configured port)
-
-
-
-Mocked vs Real Data
-Data Type	Description
-Mocked Data	Some parts of the application (for testing or demo) may use mock data — for example, pre-generated JSON payloads, dummy user profiles, or synthetic fraud cases. These are not real user data and are used so developers can test features without connecting to a production database.
-Real Data	In production or your real setup, the app should connect to a real database (SQL, NoSQL, or others) or real data sources (APIs or transaction feeds). You will need valid credentials and data connections configured via .env.
+Real Data	
+In production or your real setup, the app should connect to a real database (SQL, NoSQL, or others) or real data sources (APIs or transaction feeds). You will need valid credentials and data connections configured via .env.
 
 
 
 Example Commands
-
+```bash
 # Clone the repo
 git clone https://github.com/PrakrutiBhaskar/FraudLens_CodeStorm.git
 
@@ -106,3 +110,4 @@ npm test
 curl -X POST http://localhost:5000/api/detect-fraud \
   -H "Content-Type: application/json" \
   -d '{"transaction_amount": 1000, "user_id": "abc123", "transaction_time": "2025-11-21T12:00:00Z"}'
+```
