@@ -57,7 +57,8 @@ export default function FakeAppTriage() {
     <div className="p-6">
       {/* Search Panel */}
       <div className="panel mb-6">
-        <h1 className="neon-text text-3xl mb-3">Fake App Detection Console</h1>
+        <h1 className="neon-text text-3xl mb-4">Fake App Detection Console</h1>
+
 
         <div className="divider"></div>
 
