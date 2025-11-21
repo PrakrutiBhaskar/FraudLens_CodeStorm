@@ -16,7 +16,6 @@ The system analyzes data from Google Play Store or APK mirror sites (mocked or s
 4. [Project Structure](#project-structure)  
 5. [Dependencies](#dependencies)  
 6. [Contributing](#contributing)  
-7. [License](#license)
 
 
  
@@ -31,7 +30,7 @@ Here are the steps to set up and run the FraudLens project on your machine:
 
 
 
-2.**Install dependencies**
+**Install dependencies**
 ```bash
 # Example for Node.js backend
 cd backend
@@ -43,7 +42,7 @@ npm install
 ```
 
 
-3. **Set up configuration / environment variables**
+**Set up configuration / environment variables**
 
 Create a ```.env``` file in the backend folder (or wherever required).
 
@@ -55,7 +54,7 @@ API_KEY=your_api_key
 ```
 
  
-4. **Run the backend & frontend**
+ **Run the backend & frontend**
 ```bash
 # In the backend folder
 npm run dev  
@@ -65,7 +64,7 @@ npm start
 ```
 
 
-5.**Access the application**
+**Access the application**
 
 The backend server might run on ```http://localhost:5000``` (or whichever port you configured)
 
@@ -73,7 +72,7 @@ The frontend UI may run on ```http://localhost:3000``` (or your configured port)
 
 
 
-**Mocked vs Real Data**
+2.**Mocked vs Real Data**
 
 Mocked Data	
 Some parts of the application (for testing or demo) may use mock data — for example, pre-generated JSON payloads, dummy user profiles, or synthetic fraud cases. These are not real user data and are used so developers can test features without connecting to a production database.
@@ -84,7 +83,7 @@ Note: Be careful not to commit real credentials or sensitive data to your reposi
 
 
 
-Example Commands
+3.**Example Commands**
 ```bash
 # Clone the repo
 git clone https://github.com/PrakrutiBhaskar/FraudLens_CodeStorm.git
@@ -112,3 +111,54 @@ curl -X POST http://localhost:5000/api/detect-fraud \
   -H "Content-Type: application/json" \
   -d '{"transaction_amount": 1000, "user_id": "abc123", "transaction_time": "2025-11-21T12:00:00Z"}'
 ```
+
+
+
+4.**Project Structure**
+FraudLens_CodeStorm/
+├── backend/  
+│   ├── controllers/  
+│   ├── models/  
+│   ├── routes/  
+│   ├── .env  
+│   └── server.js  
+├── frontend/  
+│   ├── public/  
+│   ├── src/  
+│   └── package.json  
+└── README.md 
+
+
+
+5.**Dependencies**
+
+Backend:
+Express.js
+Mongoose (or other DB ORM)
+dotenv
+bcryptjs / jsonwebtoken (if authentication)
+
+Frontend:
+React / Vue / Angular
+Axios or Fetch API for HTTP calls
+Other UI libs
+
+
+
+6.**Contributing**
+
+If you want to contribute:
+
+Fork the repository
+
+Create a new branch (git checkout -b feature/your-feature)
+
+Make your changes & test
+
+Commit your changes (git commit -m "Describe your change")
+
+Push (git push origin feature/your-feature)
+
+Create a Pull Request
+
+
