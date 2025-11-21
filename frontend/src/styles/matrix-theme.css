@@ -9,6 +9,13 @@ body {
     filter: brightness(1.5); 
 }
 
+.nav-logo {
+  text-shadow: 
+    0 0 5px #00ff66,
+    0 0 10px #00ff66,
+    0 0 20px #00ff66;
+}
+
 /* Neon glow text */
 .neon-text {
     color: #11cc5c;

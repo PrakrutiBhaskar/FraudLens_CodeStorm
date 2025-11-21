@@ -71,8 +71,12 @@ export default function FakeAppTriage() {
 
         <div className="flex gap-3">
           <input
+<<<<<<< HEAD
             className="panel flex-1 p-2"
             placeholder="Search by package, app name, or keyword"
+=======
+            className="panel flex-1"
+>>>>>>> 3173380fca6873c019a3349d380c506d5fc63019
             style={{ color: "#00ff66" }}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
