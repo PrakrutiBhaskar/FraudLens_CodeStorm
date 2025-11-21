@@ -22,7 +22,7 @@ export default function FakeAppTriage() {
 
   async function searchApps() {
     addLog(`Searching for "${query}"`);
-    // DEMO DATA
+
     const demo = [
       {
         app_id: 42,
@@ -35,12 +35,14 @@ export default function FakeAppTriage() {
         package_name: "com.bank.official",
       },
     ];
+
     setCandidates(demo);
     addLog("Search complete");
   }
 
   async function openCandidate(app) {
     addLog(`Opening ${app.package_name}`);
+
     setSelected({
       ...app,
       risk_score: 0.92,
@@ -48,8 +50,7 @@ export default function FakeAppTriage() {
         { signal: "cert_mismatch", score: 1.0 },
         { signal: "icon_similarity", score: 0.96 },
       ],
-      evidence_url:
-        "/mnt/data/2987f93d-5088-4e93-976e-d5236808f037.png",
+      evidence_url: "/evidence/sample.png", // place this inside public/evidence/
     });
   }
 
@@ -58,8 +59,6 @@ export default function FakeAppTriage() {
       {/* Search Panel */}
       <div className="panel mb-6">
         <h1 className="neon-text text-3xl mb-4">Fake App Detection Console</h1>
-
-
         <div className="divider"></div>
 
         <div className="flex gap-3">
@@ -101,9 +100,7 @@ export default function FakeAppTriage() {
 
           {selected && (
             <>
-              <h2 className="neon-text text-2xl mb-2">
-                {selected.app_title}
-              </h2>
+              <h2 className="neon-text text-2xl mb-2">{selected.app_title}</h2>
               <div className="text-sm mb-4">{selected.package_name}</div>
 
               <div className="panel mb-4">
@@ -121,11 +118,7 @@ export default function FakeAppTriage() {
                 ))}
               </div>
 
-              <a
-                href={selected.evidence_url}
-                className="hacker-btn"
-                download
-              >
+              <a href={selected.evidence_url} className="hacker-btn" download>
                 DOWNLOAD EVIDENCE
               </a>
             </>

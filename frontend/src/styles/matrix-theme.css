@@ -11,7 +11,7 @@ body {
 
 /* Neon glow text */
 .neon-text {
-    color: #18de67;
+    color: #11cc5c;
     text-shadow: 0 0 8px #06421e, 0 0 15px #19e072;
 }
 
@@ -54,3 +54,9 @@ body {
     border-bottom: 1px solid #00ff66;
     margin: 16px 0;
 }
+
+.hacker-btn:hover {
+    background: rgba(0,255,102,0.2);
+    box-shadow: 0 0 12px #00ff66, 0 0 18px #00ff66;
+  }
+  
