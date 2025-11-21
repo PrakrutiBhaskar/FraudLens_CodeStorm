@@ -2,10 +2,10 @@ export const analyzeOpcodes = (strings = []) => {
   const indicators = [
     "java.lang.reflect",
     "Class.forName",
-    "dalvik.system.DexClassLoader",
+    "DexClassLoader",
     "loadClass",
-    "invoke",
     "Method.invoke",
+    "invoke",
     "HiddenApi"
   ];
 

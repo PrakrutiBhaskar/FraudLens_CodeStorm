@@ -4,9 +4,9 @@ export const detectEvasion = (strings = []) => {
     "qemu",
     "vbox",
     "goldfish",
-    "Build.FINGERPRINT",
     "isEmulator",
-    "emulator"
+    "emulator",
+    "Build.FINGERPRINT"
   ];
 
   const hits = strings.filter(s =>

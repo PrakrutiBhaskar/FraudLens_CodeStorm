@@ -1,4 +1,4 @@
-export const analyzePermissions = (permissions = [], official = {}) => {
+export const analyzePermissions = (permissions = []) => {
   const dangerous = [
     "android.permission.SYSTEM_ALERT_WINDOW",
     "android.permission.BIND_ACCESSIBILITY_SERVICE",
@@ -16,7 +16,16 @@ export const analyzePermissions = (permissions = [], official = {}) => {
     .filter(p => dangerous.includes(p));
 
   return {
-    dangerousCount: found.length,
+    score: found.length > 0 ? 1 : 0,
     dangerousPermissions: found
+  };
+};
+
+export const detectOverlayAbuse = (permissions = []) => {
+  const overlayFlag = "android.permission.SYSTEM_ALERT_WINDOW";
+  const hasOverlay = permissions.some(p => p.name === overlayFlag);
+
+  return {
+    overlayAbuse: hasOverlay
   };
 };
