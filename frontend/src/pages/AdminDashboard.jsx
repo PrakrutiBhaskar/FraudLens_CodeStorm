@@ -1,118 +1,103 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/matrix-theme.css";
 
 export default function AdminDashboard() {
   const [brands, setBrands] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [newBrand, setNewBrand] = useState("");
-  const [newPackage, setNewPackage] = useState("");
+  const [name, setName] = useState("");
+  const [pkg, setPkg] = useState("");
+  const [status, setStatus] = useState("");
 
-  const fetchBrands = async () => {
+  // Load brands on page load
+  async function loadBrands() {
     try {
-      setLoading(true);
       const res = await axios.get("http://localhost:5001/api/brands");
       setBrands(res.data.brands || []);
-      setError("");
     } catch (err) {
-      setError("Failed to load brands");
-    } finally {
-      setLoading(false);
+      setStatus("❌ Failed to load brands");
     }
-  };
+  }
 
   useEffect(() => {
-    fetchBrands();
+    loadBrands();
   }, []);
 
-  // Add brand
-  const addBrand = async () => {
-    if (!newBrand.trim() || !newPackage.trim()) {
-      setError("Brand name & package are required.");
+  // Add new brand
+  async function addBrand() {
+    if (!name || !pkg) {
+      setStatus("⚠ Please fill all fields");
       return;
     }
 
     try {
-      setError("");
-      await axios.post("http://localhost:5001/api/brands/add", {
-        name: newBrand,
-        package: newPackage,
+      const res = await axios.post("http://localhost:5001/api/brands", {
+        name,
+        package: pkg
       });
 
-    setNewBrand("");
-    setNewPackage("");
-      fetchBrands();
+      if (res.data.success) {
+        setStatus("✅ Brand added successfully!");
+        setName("");
+        setPkg("");
+        loadBrands(); // refresh list
+      } else {
+        setStatus("⚠ Failed: " + res.data.error);
+      }
     } catch (err) {
-      setError(err?.response?.data?.error || "Failed to add brand");
+      setStatus("❌ Error adding brand");
     }
-  };
-
-  // Delete brand
-  const deleteBrand = async (name) => {
-    try {
-      setError("");
-      await axios.delete(`http://localhost:5001/api/brands/${name}`);
-      fetchBrands();
-    } catch (err) {
-      setError("Failed to delete brand");
-    }
-  };
+  }
 
   return (
     <div className="p-6">
+      {/* HEADER */}
       <div className="panel mb-6">
         <h1 className="neon-text text-3xl mb-4">Brand Admin Dashboard</h1>
         <div className="divider"></div>
+      </div>
 
-        {error && <p className="text-red-400 mb-4">{error}</p>}
+      {/* ADD BRAND PANEL */}
+      <div className="panel mb-6">
+        <h2 className="neon-text text-xl mb-4">Add New Brand</h2>
 
-        {/* Add brand form */}
-        <div className="panel p-4 mb-4 bg-black/40">
-          <h2 className="neon-text text-xl mb-3">Add New Brand</h2>
-
+        <div className="flex gap-3 mb-4">
           <input
-            type="text"
-            placeholder="Brand Name"
-            value={newBrand}
-            onChange={(e) => setNewBrand(e.target.value)}
-            className="panel p-2 mb-3 w-full bg-black/20"
+            className="panel flex-1"
+            placeholder="Brand Name (e.g. phonepe)"
+            style={{ color: "#00ff66" }}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
 
           <input
-            type="text"
+            className="panel flex-1"
             placeholder="Official Package Name"
-            value={newPackage}
-            onChange={(e) => setNewPackage(e.target.value)}
-            className="panel p-2 mb-4 w-full bg-black/20"
+            style={{ color: "#00ff66" }}
+            value={pkg}
+            onChange={(e) => setPkg(e.target.value)}
           />
 
           <button className="hacker-btn" onClick={addBrand}>
             ADD BRAND
           </button>
         </div>
+
+        {status && <div className="neon-text text-sm">{status}</div>}
       </div>
 
-      {/* Brand cards */}
-      {loading ? (
-        <div className="text-green-400 neon-text text-lg">Loading...</div>
-      ) : (
-        <div className="grid grid-cols-3 gap-6">
-          {brands.map((b) => (
-            <div key={b.name} className="panel relative p-4">
-              <div className="neon-text text-xl mb-1">{b.name}</div>
-              <div className="text-xs opacity-70 mb-3">{b.package}</div>
+      {/* ALL BRANDS */}
+      <div className="grid grid-cols-3 gap-6">
+        {brands.length === 0 && (
+          <div className="neon-text text-lg opacity-75">No brands found</div>
+        )}
 
-              <button
-                className="absolute top-3 right-3 text-red-400 hover:text-red-300"
-                onClick={() => deleteBrand(b.name)}
-              >
-                ✖
-              </button>
-            </div>
-          ))}
-        </div>
-      )}
+        {brands.map((b) => (
+          <div key={b.name} className="panel">
+            <div className="neon-text text-xl">{b.name}</div>
+            <div className="text-xs opacity-80">{b.package}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

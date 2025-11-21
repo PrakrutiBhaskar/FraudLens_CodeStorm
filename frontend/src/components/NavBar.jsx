@@ -33,9 +33,6 @@ export default function NavBar() {
         <Link to="/history" className={linkClass("/history")}>
           HISTORY
         </Link>
-        <Link to="/triage" className={linkClass("/triage")}>
-          TRIAGE
-        </Link>
         <Link to="/metrics" className={linkClass("/metrics")}>
           METRICS
         </Link>

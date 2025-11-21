@@ -73,6 +73,7 @@ export default function FakeAppTriage() {
           <input
             className="panel flex-1 p-2"
             placeholder="Search by package, app name, or keyword"
+            style={{ color: "#00ff66" }}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />

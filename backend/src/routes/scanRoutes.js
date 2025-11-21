@@ -1,31 +1,25 @@
 import express from "express";
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
 
 const router = express.Router();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const LOG_FILE = path.join("logs", "scanLog.json");
 
-// Correct log path
-const LOG_DIR = path.join(__dirname, "../logs");
-const LOG_FILE = path.join(LOG_DIR, "scans.json");
-
-// Ensure folder exists
-fs.mkdirSync(LOG_DIR, { recursive: true });
-
-// Ensure file exists
-if (!fs.existsSync(LOG_FILE)) {
-  fs.writeFileSync(LOG_FILE, JSON.stringify([], null, 2));
-}
-
+// GET all scan logs
 router.get("/", (req, res) => {
   try {
-    const data = JSON.parse(fs.readFileSync(LOG_FILE, "utf-8"));
-    return res.json(data);
+    if (!fs.existsSync(LOG_FILE)) {
+      return res.json([]);
+    }
+
+    const raw = fs.readFileSync(LOG_FILE, "utf8");
+    const logs = raw.trim() ? JSON.parse(raw) : [];
+
+    res.json(logs);
   } catch (err) {
-    return res.status(500).json({ error: err.message });
+    console.error("Error loading scans:", err);
+    res.status(500).json([]);
   }
 });
 
