@@ -1,0 +1,55 @@
+/* Matrix font styling */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+body {
+    font-family: 'Share Tech Mono', monospace;
+    background: url('../assets/hacker-bg.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #00ff66;
+}
+
+/* Neon glow text */
+.neon-text {
+    color: #00ff66;
+    text-shadow: 0 0 8px #00ff66, 0 0 15px #00ff66;
+}
+
+/* Frosted-glass panel */
+.panel {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid #00ff66;
+    box-shadow: 0 0 10px #00ff66;
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
+    padding: 16px;
+}
+
+/* Buttons */
+.hacker-btn {
+    background: transparent;
+    border: 1px solid #00ff66;
+    padding: 8px 16px;
+    color: #00ff66;
+    border-radius: 5px;
+    transition: 0.2s ease;
+}
+
+.hacker-btn:hover {
+    background: rgba(0,255,102,0.15);
+    box-shadow: 0 0 10px #00ff66;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: #00ff66;
+    border-radius: 10px;
+}
+
+/* Divider */
+.divider {
+    border-bottom: 1px solid #00ff66;
+    margin: 16px 0;
+}
